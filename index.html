@@ -4,46 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRP Liveries - Pricing</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Our Pricing</h1>
+        <h1>CRP Liveries - Custom Design Studio</h1>
     </header>
+    
+
+
+    <!-- Step Navigation -->
+    <div class="step-navigation">
+        <div class="step active" data-step="1">
+            <div class="step-number">1</div>
+            <div class="step-label">Vehicle</div>
+        </div>
+        <div class="step" data-step="2">
+            <div class="step-number">2</div>
+            <div class="step-label">Livery</div>
+        </div>
+        <div class="step" data-step="3">
+            <div class="step-number">3</div>
+            <div class="step-label">Add-ons</div>
+        </div>
+        <div class="step" data-step="4">
+            <div class="step-number">4</div>
+            <div class="step-label">Bundles</div>
+        </div>
+        <div class="step" data-step="5">
+            <div class="step-number">5</div>
+            <div class="step-label">Review</div>
+        </div>
+    </div>
+
     <main>
-        <!-- Limited Time Offer Banner -->
-        <div class="offer-banner">
-            <div class="banner-content">
-                <span class="banner-icon">🔥</span>
-                <span class="banner-text">This week only: Free Priority Processing with any Premium Livery!</span>
-                <span class="banner-close">×</span>
-            </div>
-        </div>
-
-        <!-- Step Navigation -->
-        <div class="step-navigation">
-            <div class="step active" data-step="1">
-                <div class="step-number">1</div>
-                <div class="step-label">Vehicle</div>
-            </div>
-            <div class="step" data-step="2">
-                <div class="step-number">2</div>
-                <div class="step-label">Livery</div>
-            </div>
-            <div class="step" data-step="3">
-                <div class="step-number">3</div>
-                <div class="step-label">Add-ons</div>
-            </div>
-            <div class="step" data-step="4">
-                <div class="step-number">4</div>
-                <div class="step-label">Bundles</div>
-            </div>
-            <div class="step" data-step="5">
-                <div class="step-number">5</div>
-                <div class="step-label">Review</div>
-            </div>
-        </div>
-
         <div class="main-container">
             <!-- Step Content Area -->
             <div class="step-content">
@@ -100,7 +94,7 @@
                         <div class="livery-item" data-price="50">
                             <div class="livery-info">
                                 <h3>Basic</h3>
-                                <div class="price"><span class="robux-icon"></span>50 Robux</div>
+                                <div class="price">50 R$</div>
                                 <div class="live-total">
                                     <span class="calculation"></span>
                                     <span class="total-amount"></span>
@@ -118,280 +112,337 @@
                             </div>
                         </div>
 
-                <div class="livery-item">
-                    <div class="livery-info">
-                        <h3>Basic Plus <span class="tier-badge popular">Most Popular</span></h3>
-                        <div class="price" data-price="65"><span class="robux-icon"></span>65 Robux</div>
-                        <div class="live-total">
-                            <span class="calculation"></span>
-                            <span class="total-amount"></span>
+                        <div class="livery-item" data-price="65">
+                            <div class="livery-info">
+                                <h3>Basic Plus</h3>
+                                <div class="price">65 R$</div>
+                                <div class="live-total">
+                                    <span class="calculation"></span>
+                                    <span class="total-amount"></span>
+                                </div>
+                                <ul>
+                                    <li>Text with simple straight lines</li>
+                                </ul>
+                            </div>
+                            <div class="quantity-control" data-price="65">
+                                <div class="quantity-buttons">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="0" min="0">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                            </div>
                         </div>
-                        <ul>
-                            <li>Text with simple straight lines</li>
-                        </ul>
+
+                        <div class="livery-item" data-price="80">
+                            <div class="livery-info">
+                                <h3>Advanced</h3>
+                                <div class="price">80 R$</div>
+                                <div class="live-total">
+                                    <span class="calculation"></span>
+                                    <span class="total-amount"></span>
+                                </div>
+                                <ul>
+                                    <li>Text with complex lines or decals</li>
+                                    <li>EX: curves, variable line thickness, etc.</li>
+                                </ul>
+                            </div>
+                            <div class="quantity-control" data-price="80">
+                                <div class="quantity-buttons">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="0" min="0">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="livery-item" data-price="120">
+                            <div class="livery-info">
+                                <h3>Premium</h3>
+                                <div class="price">120 R$</div>
+                                <div class="live-total">
+                                    <span class="calculation"></span>
+                                    <span class="total-amount"></span>
+                                </div>
+                                <ul>
+                                    <li>Advanced livery plus shading & gradient effects</li>
+                                    <li>Custom fonts and multi-color detailing</li>
+                                </ul>
+                            </div>
+                            <div class="quantity-control" data-price="120">
+                                <div class="quantity-buttons">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="0" min="0">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="quantity-control" data-price="65">
-                        <div class="quantity-buttons">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="0" min="0">
-                            <button class="quantity-btn plus">+</button>
-                        </div>
+                    <div class="step-actions">
+                        <button class="prev-step-btn" data-prev="1">← Back</button>
+                        <button class="next-step-btn" data-next="3">Continue to Add-ons →</button>
                     </div>
                 </div>
 
-                <div class="livery-item">
-                    <div class="livery-info">
-                        <h3>Advanced <span class="tier-badge best-value">Best Value</span></h3>
-                        <div class="price" data-price="80"><span class="robux-icon"></span>80 Robux</div>
-                        <div class="live-total">
-                            <span class="calculation"></span>
-                            <span class="total-amount"></span>
-                        </div>
-                        <ul>
-                            <li>Text with complex lines or decals</li>
-                            <li>EX: curves, variable line thickness, etc.</li>
-                        </ul>
+                <!-- Step 3: Add-ons -->
+                <div class="step-panel" id="step-3">
+                    <div class="step-header">
+                        <h2>✨ Choose Add-ons</h2>
+                        <p>Enhance your livery with additional features</p>
                     </div>
-                    <div class="quantity-control" data-price="80">
-                        <div class="quantity-buttons">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="0" min="0">
-                            <button class="quantity-btn plus">+</button>
+                    <div class="addon-grid">
+                        <div class="addon-item" data-price="150">
+                            <div class="addon-info">
+                                <h3>New Seal</h3>
+                                <div class="price">+150 R$</div>
+                                <div class="live-total">
+                                    <span class="calculation"></span>
+                                    <span class="total-amount"></span>
+                                </div>
+                                <ul>
+                                    <li>Seal or crest not in current library</li>
+                                </ul>
+                            </div>
+                            <div class="quantity-control" data-price="150">
+                                <div class="quantity-buttons">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="0" min="0">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="addon-item" data-price="15">
+                            <div class="addon-info">
+                                <h3>Already Owned Seal</h3>
+                                <div class="price">+15 R$</div>
+                                <div class="live-total">
+                                    <span class="calculation"></span>
+                                    <span class="total-amount"></span>
+                                </div>
+                                <ul>
+                                    <li>Seal or crest already traced & ready</li>
+                                </ul>
+                            </div>
+                            <div class="quantity-control" data-price="15">
+                                <div class="quantity-buttons">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="0" min="0">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="addon-item" data-price="50">
+                            <div class="addon-info">
+                                <h3>Priority Processing</h3>
+                                <div class="price">+50 R$</div>
+                                <div class="live-total">
+                                    <span class="calculation"></span>
+                                    <span class="total-amount"></span>
+                                </div>
+                                <ul>
+                                    <li>Delivery in under 24 hours</li>
+                                </ul>
+                            </div>
+                            <div class="quantity-control" data-price="50">
+                                <div class="quantity-buttons">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="0" min="0">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="addon-item" data-price="25">
+                            <div class="addon-info">
+                                <h3>Vehicle Wrap Patterns</h3>
+                                <div class="price">+25 R$</div>
+                                <div class="live-total">
+                                    <span class="calculation"></span>
+                                    <span class="total-amount"></span>
+                                </div>
+                                <ul>
+                                    <li>Checkered, reflective striping, textures</li>
+                                </ul>
+                            </div>
+                            <div class="quantity-control" data-price="25">
+                                <div class="quantity-buttons">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="0" min="0">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-actions">
+                        <button class="prev-step-btn" data-prev="2">← Back</button>
+                        <button class="next-step-btn" data-next="4">Continue to Bundles →</button>
                     </div>
                 </div>
 
-                <div class="livery-item">
-                    <div class="livery-info">
-                        <h3>Premium <span class="tier-badge new">New</span></h3>
-                        <div class="price" data-price="120"><span class="robux-icon"></span>120 Robux</div>
-                        <div class="live-total">
-                            <span class="calculation"></span>
-                            <span class="total-amount"></span>
-                        </div>
-                        <ul>
-                            <li>Advanced livery plus shading & gradient effects</li>
-                            <li>Custom fonts and multi-color detailing</li>
-                        </ul>
+                <!-- Step 4: Bundle Deals -->
+                <div class="step-panel" id="step-4">
+                    <div class="step-header">
+                        <h2>📦 Recommended Bundle Deals</h2>
+                        <p>Save money with our popular package combinations</p>
                     </div>
-                    <div class="quantity-control" data-price="120">
-                        <div class="quantity-buttons">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="0" min="0">
-                            <button class="quantity-btn plus">+</button>
+                    <div class="bundle-grid">
+                        <div class="bundle-item" data-bundle="starter">
+                            <div class="savings-circle">20%<br>OFF</div>
+                            <div class="bundle-info">
+                                <h3>Starter Pack <span class="tier-badge save">Save 20%</span></h3>
+                                <div class="price">100 R$ <span class="original-price">125 R$</span></div>
+                                <div class="bundle-savings">You save 25 R$</div>
+                                <ul>
+                                    <li>1 Basic Plus Livery (65 R$)</li>
+                                    <li>1 Already Owned Seal (15 R$)</li>
+                                    <li>Vehicle Selection Included</li>
+                                </ul>
+                            </div>
+                            <div class="bundle-actions">
+                                <button class="add-bundle-btn">Add to Cart</button>
+                            </div>
                         </div>
+
+                        <div class="bundle-item" data-bundle="pro">
+                            <div class="savings-circle">18%<br>OFF</div>
+                            <div class="bundle-info">
+                                <h3>Pro Pack <span class="tier-badge popular">Most Popular</span></h3>
+                                <div class="price">220 R$ <span class="original-price">270 R$</span></div>
+                                <div class="bundle-savings">You save 50 R$</div>
+                                <ul>
+                                    <li>1 Premium Livery (120 R$)</li>
+                                    <li>1 New Seal (150 R$)</li>
+                                    <li>Priority Processing</li>
+                                </ul>
+                            </div>
+                            <div class="bundle-actions">
+                                <button class="add-bundle-btn">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="bundle-item" data-bundle="fleet">
+                            <div class="savings-circle">15%<br>OFF</div>
+                            <div class="bundle-info">
+                                <h3>Fleet Pack <span class="tier-badge best-value">Best Value</span></h3>
+                                <div class="price">275 R$ <span class="original-price">325 R$</span></div>
+                                <div class="bundle-savings">You save 50 R$</div>
+                                <ul>
+                                    <li>5 Basic Plus Liveries (325 R$)</li>
+                                    <li>5% Bundle Discount Pre-Applied</li>
+                                    <li>Perfect for RP Servers</li>
+                                </ul>
+                            </div>
+                            <div class="bundle-actions">
+                                <button class="add-bundle-btn">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="bundle-item" data-bundle="ultimate">
+                            <div class="savings-circle">25%<br>OFF</div>
+                            <div class="bundle-info">
+                                <h3>Ultimate Pack <span class="tier-badge new">Premium</span></h3>
+                                <div class="price">300 R$ <span class="original-price">400 R$</span></div>
+                                <div class="bundle-savings">You save 100 R$</div>
+                                <ul>
+                                    <li>1 Premium + 2 Advanced Liveries</li>
+                                    <li>1 New Seal + Priority Processing</li>
+                                    <li>Multi-color Font Upgrade</li>
+                                </ul>
+                            </div>
+                            <div class="bundle-actions">
+                                <button class="add-bundle-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-actions">
+                        <button class="prev-step-btn" data-prev="3">← Back</button>
+                        <button class="next-step-btn" data-next="5">Continue to Review →</button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Review & Checkout -->
+                <div class="step-panel" id="step-5">
+                    <div class="step-header">
+                        <h2>📋 Review Your Order</h2>
+                        <p>Confirm your selections and complete your purchase</p>
+                    </div>
+                    <div class="review-content">
+                        <div class="order-summary-card">
+                            <h3>Order Summary</h3>
+                            <div class="summary-items" id="summaryItems">
+                                <!-- Dynamic content will be inserted here -->
+                            </div>
+                            <div class="discount-progress">
+                                <div class="progress-text" id="progressText">Add 5 items for 5% discount</div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="total-breakdown">
+                                <div class="total-line">
+                                    <span>Subtotal:</span>
+                                    <span id="subtotalPrice">0 R$</span>
+                                </div>
+                                <div class="total-line discount" id="discountLine" style="display: none;">
+                                    <span>Discount:</span>
+                                    <span id="discountAmount">-0 R$</span>
+                                </div>
+                                <div class="total-line">
+                                    <span>Total:</span>
+                                    <span id="totalPrice">0 R$</span>
+                                </div>
+                            </div>
+                            <div class="checkout-actions">
+                                <button class="checkout-btn">Proceed to Checkout</button>
+                                <button class="save-cart-btn">Save Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-actions">
+                        <button class="prev-step-btn" data-prev="4">← Back</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Bundle Packs Section -->
-            <div class="bundles-section">
-                <h2>Bundle Packs</h2>
-
-                <div class="bundle-item" data-bundle="starter">
-                    <div class="savings-circle">20%<br>OFF</div>
-                    <div class="bundle-info">
-                        <h3>Starter Pack <span class="tier-badge save">Save 20%</span></h3>
-                        <div class="price"><span class="robux-icon"></span>100 Robux <span class="original-price">125 Robux</span></div>
-                        <div class="bundle-savings">You save 25 Robux</div>
-                        <ul>
-                            <li>1 Basic Plus Livery (65 Robux)</li>
-                            <li>1 Already Owned Seal (15 Robux)</li>
-                            <li>Vehicle Selection Included</li>
-                        </ul>
+            <!-- Sticky Order Summary Sidebar -->
+            <div class="sticky-sidebar">
+                <div class="sidebar-content">
+                    <h3>🛒 Your Order</h3>
+                    <div class="quick-summary" id="quickSummary">
+                        <p>No items selected</p>
                     </div>
-                </div>
-
-                <div class="bundle-item" data-bundle="pro">
-                    <div class="savings-circle">18%<br>OFF</div>
-                    <div class="bundle-info">
-                        <h3>Pro Pack <span class="tier-badge popular">Most Popular</span></h3>
-                        <div class="price"><span class="robux-icon"></span>220 Robux <span class="original-price">270 Robux</span></div>
-                        <div class="bundle-savings">You save 50 Robux</div>
-                        <ul>
-                            <li>1 Premium Livery (120 Robux)</li>
-                            <li>1 New Seal (150 Robux)</li>
-                            <li>Priority Processing</li>
-                        </ul>
+                    <div class="quick-total">
+                        <strong id="sidebarTotal">0 R$</strong>
                     </div>
-                </div>
-
-                <div class="bundle-item" data-bundle="fleet">
-                    <div class="savings-circle">15%<br>OFF</div>
-                    <div class="bundle-info">
-                        <h3>Fleet Pack <span class="tier-badge best-value">Best Value</span></h3>
-                        <div class="price"><span class="robux-icon"></span>275 Robux <span class="original-price">325 Robux</span></div>
-                        <div class="bundle-savings">You save 50 Robux</div>
-                        <ul>
-                            <li>5 Basic Plus Liveries (325 Robux)</li>
-                            <li>5% Bundle Discount Pre-Applied</li>
-                            <li>Perfect for RP Servers</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="bundle-item" data-bundle="ultimate">
-                    <div class="savings-circle">25%<br>OFF</div>
-                    <div class="bundle-info">
-                        <h3>Ultimate Pack <span class="tier-badge new">Premium</span></h3>
-                        <div class="price"><span class="robux-icon"></span>300 Robux <span class="original-price">400 Robux</span></div>
-                        <div class="bundle-savings">You save 100 Robux</div>
-                        <ul>
-                            <li>1 Premium + 2 Advanced Liveries</li>
-                            <li>1 New Seal + Priority Processing</li>
-                            <li>Multi-color Font Upgrade</li>
-                        </ul>
+                    <div class="discount-indicator" id="discountIndicator">
+                        <div class="progress-mini">
+                            <div class="progress-mini-bar" id="progressMiniBar"></div>
+                        </div>
+                        <span class="discount-text" id="discountMiniText">Add 5 for 5% off</span>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Add-ons Section -->
-            <div class="addons-section">
-                <h2>Add-ons</h2>
-
-                <div class="addon-item">
-                    <div class="addon-info">
-                        <h3>New Seal</h3>
-                        <div class="price" data-price="150"><span class="robux-icon"></span>+150 Robux</div>
-                        <div class="live-total">
-                            <span class="calculation"></span>
-                            <span class="total-amount"></span>
-                        </div>
-                        <ul>
-                            <li>Seal or crest not in current library</li>
-                        </ul>
-                    </div>
-                    <div class="quantity-control" data-price="150">
-                        <div class="quantity-buttons">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="0" min="0">
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                    </div>
+        <!-- Dynamic Recommendation Modal -->
+        <div class="recommendation-modal" id="recommendationModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>💡 We Found a Better Deal!</h3>
+                    <span class="modal-close">×</span>
                 </div>
-
-                <div class="addon-item">
-                    <div class="addon-info">
-                        <h3>Already Owned Seal</h3>
-                        <div class="price" data-price="15"><span class="robux-icon"></span>+15 Robux</div>
-                        <div class="live-total">
-                            <span class="calculation"></span>
-                            <span class="total-amount"></span>
-                        </div>
-                        <ul>
-                            <li>Seal or crest already traced & ready</li>
-                        </ul>
-                    </div>
-                    <div class="quantity-control" data-price="15">
-                        <div class="quantity-buttons">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="0" min="0">
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="addon-item">
-                    <div class="addon-info">
-                        <h3>Priority Processing</h3>
-                        <div class="price" data-price="50"><span class="robux-icon"></span>+50 Robux</div>
-                        <div class="live-total">
-                            <span class="calculation"></span>
-                            <span class="total-amount"></span>
-                        </div>
-                        <ul>
-                            <li>Delivery in under 24 hours</li>
-                        </ul>
-                    </div>
-                    <div class="quantity-control" data-price="50">
-                        <div class="quantity-buttons">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="0" min="0">
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="addon-item">
-                    <div class="addon-info">
-                        <h3>Minor Change Fee</h3>
-                        <div class="price" data-price="15"><span class="robux-icon"></span>+15 Robux</div>
-                        <div class="live-total">
-                            <span class="calculation"></span>
-                            <span class="total-amount"></span>
-                        </div>
-                        <ul>
-                            <li>Small edits after delivery</li>
-                        </ul>
-                    </div>
-                    <div class="quantity-control" data-price="15">
-                        <div class="quantity-buttons">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="0" min="0">
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="addon-item">
-                    <div class="addon-info">
-                        <h3>Vehicle Wrap Patterns</h3>
-                        <div class="price" data-price="25"><span class="robux-icon"></span>+25 Robux</div>
-                        <div class="live-total">
-                            <span class="calculation"></span>
-                            <span class="total-amount"></span>
-                        </div>
-                        <ul>
-                            <li>Checkered, reflective striping, textures</li>
-                        </ul>
-                    </div>
-                    <div class="quantity-control" data-price="25">
-                        <div class="quantity-buttons">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="0" min="0">
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-            <!-- Discount Progress -->
-            <div class="discount-progress">
-                <div class="progress-text" id="progressText">Add 5 items for 5% discount</div>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" id="progressBar" style="width: 0%"></div>
-                </div>
-            </div>
-
-            <!-- Discount Display -->
-            <div class="discount-section">
-                <h2>Bundle Discount</h2>
-                <p id="discountInfo">No discount applied</p>
-            </div>
-
-            <!-- Total -->
-            <div class="total-section">
-                <h2>Order Summary</h2>
-                <div class="total-breakdown">
-                    <div class="total-line">
-                        <span>Subtotal:</span>
-                        <span id="subtotalPrice"><span class="robux-icon"></span>0 Robux</span>
-                    </div>
-                    <div class="total-line discount" id="discountLine" style="display: none;">
-                        <span>Discount:</span>
-                        <span id="discountAmount">-0 Robux</span>
-                    </div>
-                    <div class="total-line">
-                        <span>Total:</span>
-                        <span id="totalPrice"><span class="robux-icon"></span>0 Robux</span>
+                <div class="modal-body">
+                    <p id="recommendationText"></p>
+                    <div class="recommendation-actions">
+                        <button class="accept-recommendation">Yes, Switch to Bundle</button>
+                        <button class="decline-recommendation">No, Keep Current Selection</button>
                     </div>
                 </div>
             </div>
-
         </div>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
