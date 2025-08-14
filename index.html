@@ -11,40 +11,152 @@
         <h1>Our Pricing</h1>
     </header>
     <main>
-        <div class="pricing-container">
-            <div class="pricing-plan">
-                <h2>Basic</h2>
-                <div class="price">$10</div>
-                <ul>
-                    <li>Feature 1</li>
-                    <li>Feature 2</li>
-                    <li>Feature 3</li>
-                </ul>
-                <button>Select</button>
+        <div class="main-container">
+
+            <!-- Vehicle Selector -->
+            <div class="vehicle-selector">
+                <h2>Select Your Vehicle(s)</h2>
+                <select id="vehicleDropdown">
+                    <option value="" disabled selected>Choose a vehicle...</option>
+                    <option value="police_sedan">Police Sedan</option>
+                    <option value="police_suv">Police SUV</option>
+                    <option value="fire_truck">Fire Truck</option>
+                    <option value="ambulance">Ambulance</option>
+                    <option value="civilian_sedan">Civilian Sedan</option>
+                    <option value="civilian_suv">Civilian SUV</option>
+                </select>
+                <p class="note">Discounts: 5 vehicles → 5% off, 10 vehicles → 10% off</p>
             </div>
-            <div class="pricing-plan">
-                <h2>Pro</h2>
-                <div class="price">$25</div>
-                <ul>
-                    <li>Feature 1</li>
-                    <li>Feature 2</li>
-                    <li>Feature 3</li>
-                    <li>Feature 4</li>
-                </ul>
-                <button>Select</button>
+
+            <!-- Liveries Section -->
+            <div class="liveries-section">
+                <h2>Livery Types</h2>
+
+                <div class="livery-item">
+                    <div class="livery-info">
+                        <h3>Basic</h3>
+                        <div class="price" data-price="50">50 Robux</div>
+                        <ul>
+                            <li>Text only</li>
+                        </ul>
+                    </div>
+                    <div class="quantity-control" data-price="50">
+                        <button class="quantity-btn minus">-</button>
+                        <input type="number" class="quantity-input" value="0" min="0">
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                </div>
+
+                <div class="livery-item">
+                    <div class="livery-info">
+                        <h3>Basic Plus</h3>
+                        <div class="price" data-price="65">65 Robux</div>
+                        <ul>
+                            <li>Text with simple straight lines</li>
+                        </ul>
+                    </div>
+                    <div class="quantity-control" data-price="65">
+                        <button class="quantity-btn minus">-</button>
+                        <input type="number" class="quantity-input" value="0" min="0">
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                </div>
+
+                <div class="livery-item">
+                    <div class="livery-info">
+                        <h3>Advanced</h3>
+                        <div class="price" data-price="80">80 Robux</div>
+                        <ul>
+                            <li>Text with complex lines or decals</li>
+                            <li>EX: curves, variable line thickness, etc.</li>
+                        </ul>
+                    </div>
+                    <div class="quantity-control" data-price="80">
+                        <button class="quantity-btn minus">-</button>
+                        <input type="number" class="quantity-input" value="0" min="0">
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                </div>
+
+                <div class="livery-item">
+                    <div class="livery-info">
+                        <h3>Premium</h3>
+                        <div class="price" data-price="120">120 Robux</div>
+                        <ul>
+                            <li>Advanced livery plus shading & gradient effects</li>
+                            <li>Custom fonts and multi-color detailing</li>
+                        </ul>
+                    </div>
+                    <div class="quantity-control" data-price="100">
+                        <button class="quantity-btn minus">-</button>
+                        <input type="number" class="quantity-input" value="0" min="0">
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                </div>
             </div>
-            <div class="pricing-plan">
-                <h2>Premium</h2>
-                <div class="price">$50</div>
-                <ul>
-                    <li>Feature 1</li>
-                    <li>Feature 2</li>
-                    <li>Feature 3</li>
-                    <li>Feature 4</li>
-                    <li>Feature 5</li>
-                </ul>
-                <button>Select</button>
+
+            <!-- Add-ons Section -->
+            <div class="addons-section">
+                <h2>Add-ons</h2>
+
+                <div class="addon-item">
+                    <div class="addon-info">
+                        <h3>New Seal</h3>
+                        <div class="price" data-price="150">+150 Robux</div>
+                        <ul>
+                            <li>Seal or crest not in current library</li>
+                        </ul>
+                    </div>
+                    <div class="quantity-control" data-price="150">
+                        <button class="quantity-btn minus">-</button>
+                        <input type="number" class="quantity-input" value="0" min="0">
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                </div>
+
+                <div class="addon-item">
+                    <div class="addon-info">
+                        <h3>Already Owned Seal</h3>
+                        <div class="price" data-price="15">+15 Robux</div>
+                        <ul>
+                            <li>Seal or crest already traced & ready</li>
+                        </ul>
+                    </div>
+                    <div class="quantity-control" data-price="15">
+                        <button class="quantity-btn minus">-</button>
+                        <input type="number" class="quantity-input" value="0" min="0">
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                </div>
+
+                <div class="addon-item">
+                    <div class="addon-info">
+                        <h3>Custom Font</h3>
+                        <div class="price" data-price="20">+20 Robux</div>
+                        <ul>
+                            <li>Specialty font not in standard pack</li>
+                        </ul>
+                    </div>
+                    <div class="quantity-control" data-price="20">
+                        <button class="quantity-btn minus">-</button>
+                        <input type="number" class="quantity-input" value="0" min="0">
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                </div>
             </div>
+
+            <!-- Discount Display -->
+            <div class="discount-section">
+                <h2>Bundle Discount</h2>
+                <p id="discountInfo">No discount applied</p>
+            </div>
+
+            <!-- Total -->
+            <div class="total-section">
+                <h2>Total</h2>
+                <p id="totalPrice">0 Robux</p>
+            </div>
+
         </div>
     </main>
     <script src="script.js"></script>

@@ -1,63 +1,284 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     color: #333;
+    line-height: 1.6;
 }
 
+/* Header */
 header {
-    background-color: #333;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     color: #fff;
-    padding: 1rem 0;
+    padding: 2rem 0;
     text-align: center;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
-.pricing-container {
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+/* Container */
+.main-container {
     display: flex;
-    justify-content: center;
-    padding: 2rem;
-    gap: 2rem;
+    padding: 3rem 2rem;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.pricing-plan {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 2rem;
-    text-align: center;
-    width: 300px;
+/* Sections */
+.liveries-section,
+.addons-section {
+    flex: 1;
+    min-width: 300px;
 }
 
-.pricing-plan h2 {
+.liveries-section h2,
+.addons-section h2 {
     margin-top: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.liveries-section h2::after,
+.addons-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+/* Item Cards */
+.livery-item,
+.addon-item {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.livery-item::before,
+.addon-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.livery-item:hover,
+.addon-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.livery-item:hover::before,
+.addon-item:hover::before {
+    left: 100%;
+}
+
+/* Info Text */
+.livery-info,
+.addon-info {
+    flex: 1;
+}
+
+.livery-info h3,
+.addon-info h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    color: #111;
 }
 
 .price {
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.pricing-plan ul {
+.livery-info ul,
+.addon-info ul {
     list-style: none;
     padding: 0;
-    margin: 1rem 0;
+    margin: 0.5rem 0 0 0;
 }
 
-.pricing-plan li {
-    padding: 0.5rem 0;
+.livery-info li,
+.addon-info li {
+    padding: 0.25rem 0;
+    font-size: 0.95rem;
+    color: #666;
 }
 
-button {
-    background-color: #333;
+/* Quantity Controls */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: #fff;
     border: none;
-    padding: 1rem 2rem;
-    border-radius: 5px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
-button:hover {
-    background-color: #555;
+.quantity-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.quantity-btn:active {
+    transform: translateY(0);
+}
+
+.quantity-input {
+    width: 70px;
+    text-align: center;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+}
+
+.quantity-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Discount & Total Boxes */
+.discount-section,
+.total-section {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border-left: 5px solid #007bff;
+}
+
+#discountInfo {
+    font-weight: bold;
+    color: #ff6600;
+}
+
+#totalPrice {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+        margin: 1rem;
+        gap: 2rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .liveries-section h2,
+    .addons-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .livery-item,
+    .addon-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .quantity-control {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        padding: 1rem 0.5rem;
+        margin: 0.5rem;
+    }
+
+    .livery-item,
+    .addon-item {
+        padding: 1rem;
+    }
+
+    .quantity-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    .quantity-input {
+        width: 60px;
+        font-size: 1rem;
+    }
 }
