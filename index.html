@@ -17,22 +17,26 @@
     <div class="step-navigation">
         <div class="step active" data-step="1">
             <div class="step-number">1</div>
-            <div class="step-label">Vehicle</div>
+            <div class="step-label">Departments</div>
         </div>
         <div class="step" data-step="2">
             <div class="step-number">2</div>
-            <div class="step-label">Livery</div>
+            <div class="step-label">Vehicles</div>
         </div>
         <div class="step" data-step="3">
             <div class="step-number">3</div>
-            <div class="step-label">Add-ons</div>
+            <div class="step-label">Livery</div>
         </div>
         <div class="step" data-step="4">
             <div class="step-number">4</div>
-            <div class="step-label">Bundles</div>
+            <div class="step-label">Add-ons</div>
         </div>
         <div class="step" data-step="5">
             <div class="step-number">5</div>
+            <div class="step-label">Bundles</div>
+        </div>
+        <div class="step" data-step="6">
+            <div class="step-number">6</div>
             <div class="step-label">Review</div>
         </div>
     </div>
@@ -41,51 +45,64 @@
         <div class="main-container">
             <!-- Step Content Area -->
             <div class="step-content">
-                <!-- Step 1: Vehicle Selection -->
+                <!-- Step 1: Department Input -->
                 <div class="step-panel active" id="step-1">
                     <div class="step-header">
-                        <h2>🚗 Select Your Vehicle</h2>
-                        <p>Choose the vehicle type for your livery design</p>
+                        <h2>🏢 Enter Your Departments</h2>
+                        <p>Add the departments that need livery designs</p>
                     </div>
-                    <div class="vehicle-grid">
-                        <div class="vehicle-card" data-vehicle="police_sedan">
-                            <div class="vehicle-icon">🚔</div>
-                            <h3>Police Sedan</h3>
-                            <p>Standard patrol vehicle</p>
+                    <div class="department-input-section">
+                        <div class="department-input-container">
+                            <div class="input-group">
+                                <label for="departmentInput">Department Name:</label>
+                                <input type="text" id="departmentInput" class="department-input" placeholder="e.g., Los Santos Police Department">
+                                <button class="add-department-btn">Add Department</button>
+                            </div>
                         </div>
-                        <div class="vehicle-card" data-vehicle="police_suv">
-                            <div class="vehicle-icon">🚙</div>
-                            <h3>Police SUV</h3>
-                            <p>Heavy duty patrol</p>
+
+                        <div class="departments-list">
+                            <h3>Added Departments:</h3>
+                            <div class="departments-container" id="departmentsContainer">
+                                <p class="no-departments">No departments added yet</p>
+                            </div>
                         </div>
-                        <div class="vehicle-card" data-vehicle="fire_truck">
-                            <div class="vehicle-icon">🚒</div>
-                            <h3>Fire Truck</h3>
-                            <p>Emergency response</p>
-                        </div>
-                        <div class="vehicle-card" data-vehicle="ambulance">
-                            <div class="vehicle-icon">🚑</div>
-                            <h3>Ambulance</h3>
-                            <p>Medical emergency</p>
-                        </div>
-                        <div class="vehicle-card" data-vehicle="civilian_sedan">
-                            <div class="vehicle-icon">🚗</div>
-                            <h3>Civilian Sedan</h3>
-                            <p>Personal vehicle</p>
-                        </div>
-                        <div class="vehicle-card" data-vehicle="civilian_suv">
-                            <div class="vehicle-icon">🚐</div>
-                            <h3>Civilian SUV</h3>
-                            <p>Family vehicle</p>
+
+                        <div class="department-suggestions">
+                            <h4>Common Departments:</h4>
+                            <div class="suggestion-tags">
+                                <span class="suggestion-tag" data-dept="Los Santos Police Department">Los Santos Police Department</span>
+                                <span class="suggestion-tag" data-dept="Los Santos Fire Department">Los Santos Fire Department</span>
+                                <span class="suggestion-tag" data-dept="Los Santos Medical Services">Los Santos Medical Services</span>
+                                <span class="suggestion-tag" data-dept="Los Santos Sheriff's Office">Los Santos Sheriff's Office</span>
+                                <span class="suggestion-tag" data-dept="San Andreas State Police">San Andreas State Police</span>
+                                <span class="suggestion-tag" data-dept="Blaine County Sheriff">Blaine County Sheriff</span>
+                                <span class="suggestion-tag" data-dept="Los Santos Customs">Los Santos Customs</span>
+                                <span class="suggestion-tag" data-dept="Private Security">Private Security</span>
+                            </div>
                         </div>
                     </div>
                     <div class="step-actions">
-                        <button class="next-step-btn" data-next="2">Continue to Livery Selection →</button>
+                        <button class="next-step-btn" data-next="2" id="continueBtn" disabled>Continue to Vehicle Selection →</button>
                     </div>
                 </div>
 
-                <!-- Step 2: Livery Selection -->
+                <!-- Step 2: Vehicle Selection -->
                 <div class="step-panel" id="step-2">
+                    <div class="step-header">
+                        <h2>🚗 Select Vehicles for Each Department</h2>
+                        <p>Add vehicles that need livery designs for each department</p>
+                    </div>
+                    <div class="vehicle-selection-section" id="vehicleSelectionSection">
+                        <!-- Dynamic content will be inserted here based on departments -->
+                    </div>
+                    <div class="step-actions">
+                        <button class="prev-step-btn" data-prev="1">← Back</button>
+                        <button class="next-step-btn" data-next="3" id="vehicleContinueBtn" disabled>Continue to Livery Selection →</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Livery Selection -->
+                <div class="step-panel" id="step-3">
                     <div class="step-header">
                         <h2>🎨 Choose Your Livery Type</h2>
                         <p>Select the complexity level for your design</p>
@@ -178,13 +195,13 @@
                         </div>
                     </div>
                     <div class="step-actions">
-                        <button class="prev-step-btn" data-prev="1">← Back</button>
-                        <button class="next-step-btn" data-next="3">Continue to Add-ons →</button>
+                        <button class="prev-step-btn" data-prev="2">← Back</button>
+                        <button class="next-step-btn" data-next="4">Continue to Add-ons →</button>
                     </div>
                 </div>
 
-                <!-- Step 3: Add-ons -->
-                <div class="step-panel" id="step-3">
+                <!-- Step 4: Add-ons -->
+                <div class="step-panel" id="step-4">
                     <div class="step-header">
                         <h2>✨ Choose Add-ons</h2>
                         <p>Enhance your livery with additional features</p>
@@ -275,13 +292,13 @@
                         </div>
                     </div>
                     <div class="step-actions">
-                        <button class="prev-step-btn" data-prev="2">← Back</button>
-                        <button class="next-step-btn" data-next="4">Continue to Bundles →</button>
+                        <button class="prev-step-btn" data-prev="3">← Back</button>
+                        <button class="next-step-btn" data-next="5">Continue to Bundles →</button>
                     </div>
                 </div>
 
-                <!-- Step 4: Bundle Deals -->
-                <div class="step-panel" id="step-4">
+                <!-- Step 5: Bundle Deals -->
+                <div class="step-panel" id="step-5">
                     <div class="step-header">
                         <h2>📦 Recommended Bundle Deals</h2>
                         <p>Save money with our popular package combinations</p>
@@ -356,13 +373,13 @@
                         </div>
                     </div>
                     <div class="step-actions">
-                        <button class="prev-step-btn" data-prev="3">← Back</button>
-                        <button class="next-step-btn" data-next="5">Continue to Review →</button>
+                        <button class="prev-step-btn" data-prev="4">← Back</button>
+                        <button class="next-step-btn" data-next="6">Continue to Review →</button>
                     </div>
                 </div>
 
-                <!-- Step 5: Review & Checkout -->
-                <div class="step-panel" id="step-5">
+                <!-- Step 6: Review & Checkout -->
+                <div class="step-panel" id="step-6">
                     <div class="step-header">
                         <h2>📋 Review Your Order</h2>
                         <p>Confirm your selections and complete your purchase</p>
@@ -400,7 +417,7 @@
                         </div>
                     </div>
                     <div class="step-actions">
-                        <button class="prev-step-btn" data-prev="4">← Back</button>
+                        <button class="prev-step-btn" data-prev="5">← Back</button>
                     </div>
                 </div>
             </div>

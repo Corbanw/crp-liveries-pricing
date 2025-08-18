@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const quickSummary = document.querySelector('#quickSummary');
     
     let currentStep = 1;
-    let selectedVehicle = null;
+    let departments = [];
+    let departmentVehicles = {}; // Object to store vehicles for each department
     let cart = {};
 
     // Step Navigation
@@ -17,6 +18,167 @@ document.addEventListener('DOMContentLoaded', function () {
     const stepPanels = document.querySelectorAll('.step-panel');
     const nextButtons = document.querySelectorAll('.next-step-btn');
     const prevButtons = document.querySelectorAll('.prev-step-btn');
+
+    // Department Management Functions
+    const addDepartment = (deptName) => {
+        if (deptName.trim() && !departments.includes(deptName.trim())) {
+            departments.push(deptName.trim());
+            updateDepartmentDisplay();
+            updateContinueButton();
+        }
+    };
+
+    const removeDepartment = (deptName) => {
+        departments = departments.filter(dept => dept !== deptName);
+        updateDepartmentDisplay();
+        updateContinueButton();
+    };
+
+    const updateDepartmentDisplay = () => {
+        const container = document.querySelector('#departmentsContainer');
+        if (!container) return;
+
+        if (departments.length === 0) {
+            container.innerHTML = '<p class="no-departments">No departments added yet</p>';
+        } else {
+            container.innerHTML = departments.map(dept =>
+                `<div class="department-tag">
+                    ${dept}
+                    <button class="remove-dept" onclick="removeDepartment('${dept}')">×</button>
+                </div>`
+            ).join('');
+        }
+    };
+
+    const updateContinueButton = () => {
+        const continueBtn = document.querySelector('#continueBtn');
+        if (continueBtn) {
+            continueBtn.disabled = departments.length === 0;
+        }
+    };
+
+    // Vehicle Management Functions
+    const addVehicle = (department, vehicleName) => {
+        if (!departmentVehicles[department]) {
+            departmentVehicles[department] = [];
+        }
+        if (vehicleName.trim() && !departmentVehicles[department].includes(vehicleName.trim())) {
+            departmentVehicles[department].push(vehicleName.trim());
+            updateVehicleDisplay(department);
+            updateVehicleContinueButton();
+        }
+    };
+
+    const removeVehicle = (department, vehicleName) => {
+        if (departmentVehicles[department]) {
+            departmentVehicles[department] = departmentVehicles[department].filter(vehicle => vehicle !== vehicleName);
+            updateVehicleDisplay(department);
+            updateVehicleContinueButton();
+        }
+    };
+
+    const updateVehicleDisplay = (department) => {
+        const container = document.querySelector(`#vehicles-${department.replace(/\s+/g, '-')}`);
+        if (!container) return;
+
+        const vehicles = departmentVehicles[department] || [];
+        if (vehicles.length === 0) {
+            container.innerHTML = '<p class="no-vehicles">No vehicles added yet</p>';
+        } else {
+            container.innerHTML = vehicles.map(vehicle =>
+                `<div class="vehicle-tag">
+                    ${vehicle}
+                    <button class="remove-vehicle" onclick="removeVehicle('${department}', '${vehicle}')">×</button>
+                </div>`
+            ).join('');
+        }
+    };
+
+    const updateVehicleContinueButton = () => {
+        const continueBtn = document.querySelector('#vehicleContinueBtn');
+        if (continueBtn) {
+            const hasVehicles = Object.values(departmentVehicles).some(vehicles => vehicles.length > 0);
+            continueBtn.disabled = !hasVehicles;
+        }
+    };
+
+    const generateVehicleSelectionHTML = () => {
+        const section = document.querySelector('#vehicleSelectionSection');
+        if (!section) return;
+
+        const commonVehicles = [
+            'Police Sedan', 'Police SUV', 'Police Motorcycle', 'Police Truck',
+            'Fire Truck', 'Fire SUV', 'Ambulance', 'Paramedic SUV',
+            'Sheriff Sedan', 'Sheriff SUV', 'Unmarked Vehicle', 'SWAT Van'
+        ];
+
+        section.innerHTML = departments.map(dept => {
+            const deptId = dept.replace(/\s+/g, '-');
+            return `
+                <div class="department-vehicle-section">
+                    <h3>${dept}</h3>
+                    <div class="vehicle-input-container">
+                        <input type="text" class="vehicle-input" placeholder="Enter vehicle name..." data-dept="${dept}">
+                        <button class="add-vehicle-btn" data-dept="${dept}">Add Vehicle</button>
+                    </div>
+                    <div class="vehicles-list" id="vehicles-${deptId}">
+                        <p class="no-vehicles">No vehicles added yet</p>
+                    </div>
+                    <div class="vehicle-suggestions">
+                        <h4>Common Vehicles:</h4>
+                        <div class="vehicle-suggestion-tags">
+                            ${commonVehicles.map(vehicle =>
+                                `<span class="vehicle-suggestion-tag" data-dept="${dept}" data-vehicle="${vehicle}">${vehicle}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        // Add event listeners for the new elements
+        setupVehicleEventListeners();
+    };
+
+    const setupVehicleEventListeners = () => {
+        // Add vehicle buttons
+        document.querySelectorAll('.add-vehicle-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const dept = this.dataset.dept;
+                const input = document.querySelector(`.vehicle-input[data-dept="${dept}"]`);
+                if (input && input.value.trim()) {
+                    addVehicle(dept, input.value.trim());
+                    input.value = '';
+                }
+            });
+        });
+
+        // Vehicle input enter key
+        document.querySelectorAll('.vehicle-input').forEach(input => {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const dept = this.dataset.dept;
+                    if (this.value.trim()) {
+                        addVehicle(dept, this.value.trim());
+                        this.value = '';
+                    }
+                }
+            });
+        });
+
+        // Vehicle suggestion tags
+        document.querySelectorAll('.vehicle-suggestion-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                const dept = this.dataset.dept;
+                const vehicle = this.dataset.vehicle;
+                addVehicle(dept, vehicle);
+            });
+        });
+    };
+
+    // Make functions globally accessible
+    window.removeDepartment = removeDepartment;
+    window.removeVehicle = removeVehicle;
 
     // Utility Functions
     const formatCurrency = (value) => `${value} R$`;
@@ -217,16 +379,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 step.classList.remove('completed');
             }
         });
-        
+
         stepPanels.forEach((panel, index) => {
             panel.classList.toggle('active', index + 1 === stepNumber);
         });
-        
+
+        // Generate vehicle selection when moving to step 2
+        if (stepNumber === 2) {
+            generateVehicleSelectionHTML();
+        }
+
         currentStep = stepNumber;
     };
 
     const nextStep = () => {
-        if (currentStep < 5) {
+        if (currentStep < 6) {
             showStep(currentStep + 1);
         }
     };
@@ -260,13 +427,33 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Vehicle selection
-    const vehicleCards = document.querySelectorAll('.vehicle-card');
-    vehicleCards.forEach(card => {
-        card.addEventListener('click', function() {
-            vehicleCards.forEach(c => c.classList.remove('selected'));
-            this.classList.add('selected');
-            selectedVehicle = this.dataset.vehicle;
+    // Department input functionality
+    const departmentInput = document.querySelector('#departmentInput');
+    const addDepartmentBtn = document.querySelector('.add-department-btn');
+    const suggestionTags = document.querySelectorAll('.suggestion-tag');
+
+    if (addDepartmentBtn) {
+        addDepartmentBtn.addEventListener('click', function() {
+            if (departmentInput) {
+                addDepartment(departmentInput.value);
+                departmentInput.value = '';
+            }
+        });
+    }
+
+    if (departmentInput) {
+        departmentInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addDepartment(this.value);
+                this.value = '';
+            }
+        });
+    }
+
+    suggestionTags.forEach(tag => {
+        tag.addEventListener('click', function() {
+            const deptName = this.dataset.dept;
+            addDepartment(deptName);
         });
     });
 
